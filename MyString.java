@@ -62,10 +62,11 @@ public class MyString {
      */
     public static String spacedString(String str) {
         String newStr = "";
-        for (int i = 0; i < str.length(); i++){
+        for (int i = 0; i < str.length()-1; i++){
             newStr += str.charAt(i);
             newStr += " ";
         }
+        newStr+= str.charAt(str.length()-1);
         return newStr;
     }
   
