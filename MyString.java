@@ -40,16 +40,24 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
-        int check = 0; 
         for (int i = 0; i < str1.length(); i++){
-            if (countChar(str2, str1.charAt(i)) != 0){
-                check ++;
+            boolean exist = false;
+            for (int j = 0; j < str2.length(); j++){
+                char c;
+                if (str1.charAt(i) == str2.charAt(j)){
+                    exist = true;
+                    c = str1.charAt(i);
+                    if (countChar(str2, c) != countChar(str1, c)){
+                        exist = false;
+                    }
+                }
+                
+            }
+            if (!exist){
+                return false;
             }
         }
-        if (check == str1.length()){
-            return true;
-        }
-        return false;
+        return true;
     }
 
     /** Returns a string which is the same as the given string, with a space
@@ -62,6 +70,9 @@ public class MyString {
      */
     public static String spacedString(String str) {
         String newStr = "";
+        if (str.isEmpty()){
+            return null;
+        }
         for (int i = 0; i < str.length()-1; i++){
             newStr += str.charAt(i);
             newStr += " ";
