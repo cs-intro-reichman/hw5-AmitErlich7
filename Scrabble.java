@@ -153,9 +153,12 @@ public class Scrabble {
 			if (input.equals("e")){
 				break;
 			}
-			else{
-				String hand = MyString.randomStringOfLetters(8);
+			if (input.equals("n")){
+				String hand = createHand();
 				playHand(hand);
+			}
+			else{
+				System.out.println("error");
 			}
 		}
 	}
@@ -165,8 +168,8 @@ public class Scrabble {
 		////testBuildingTheDictionary();  
 		////testScrabbleScore();    
 		////testCreateHands();  
-		testPlayHands();
-		////playGame();
+		////testPlayHands();
+		playGame();
 	}
 
 	public static void testBuildingTheDictionary() {
