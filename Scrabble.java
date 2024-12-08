@@ -99,7 +99,6 @@ public class Scrabble {
     // 2. The user gets the Scrabble points of the entered word.
     // 3. The user is prompted to enter another word, or '.' to end the hand. 
 	public static void playHand(String hand) {
-		hand = createHand();
 		int n = hand.length();
 		int score = 0;
 		// Declares the variable in to refer to an object of type In, and initializes it to represent
@@ -126,10 +125,10 @@ public class Scrabble {
 				if (MyString.subsetOf(input, hand) == false){
 					System.out.println("Invalid word. Try again.");
 				}
-				if (isWordInDictionary(input) == false){
+				if (isWordInDictionary(input) == false) {
 					System.out.println("No such word in the dictionary. Try again.");
 				}
-		}
+			}
 		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
@@ -151,9 +150,13 @@ public class Scrabble {
 			// Gets the user's input, which is all the characters entered by 
 			// the user until the user enter the ENTER character.
 			String input = in.readString();
-			//// Replace the following break statement with code
-			//// that completes the game playing loop
-			break;
+			if (input.equals("e")){
+				break;
+			}
+			else{
+				String hand = MyString.randomStringOfLetters(8);
+				playHand(hand);
+			}
 		}
 	}
 
