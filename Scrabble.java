@@ -125,7 +125,7 @@ public class Scrabble {
 				if (MyString.subsetOf(input, hand) == false){
 					System.out.println("Invalid word. Try again.");
 				}
-				if (isWordInDictionary(input) == false) {
+				else if (isWordInDictionary(input) == false) {
 					System.out.println("No such word in the dictionary. Try again.");
 				}
 			}
@@ -155,10 +155,8 @@ public class Scrabble {
 			}
 			if (input.equals("n")){
 				String hand = createHand();
+				HAND_SIZE = hand.length();
 				playHand(hand);
-			}
-			else{
-				System.out.println("error");
 			}
 		}
 	}
@@ -168,8 +166,8 @@ public class Scrabble {
 		////testBuildingTheDictionary();  
 		////testScrabbleScore();    
 		////testCreateHands();  
-		////testPlayHands();
-		playGame();
+		testPlayHands();
+		//playGame();
 	}
 
 	public static void testBuildingTheDictionary() {
@@ -195,8 +193,8 @@ public class Scrabble {
 	}
 	public static void testPlayHands() {
 		init();
-		playHand("ocostrza");
+		//playHand("ocostrza");
 		//playHand("arbffip");
-		//playHand("aretiin");
+		playHand("aretiin");
 	}
 }

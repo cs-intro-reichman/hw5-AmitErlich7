@@ -8,6 +8,7 @@ public class MyString {
         System.out.println(countChar(hello, 'l'));
         System.out.println(countChar(hello, 'z'));
         System.out.println(spacedString(hello));
+        System.out.println(subsetOf("train", "aretiin"));
     }
 
     /**
@@ -47,7 +48,7 @@ public class MyString {
                 if (str1.charAt(i) == str2.charAt(j)){
                     exist = true;
                     c = str1.charAt(i);
-                    if (countChar(str2, c) != countChar(str1, c)){
+                    if (countChar(str2, c) < countChar(str1, c)){
                         exist = false;
                     }
                 }
